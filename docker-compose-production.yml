@@ -1,0 +1,12 @@
+version: "3.7"
+services:
+   front:
+    container_name: front-end-vue
+    restart: always 
+    build: 
+        context: ./frontend
+        dockerfile: dockerfile.prod
+    ports:
+      - 8081:8080
+    volumes: #
+      - ./frontend:/usr/src/app
