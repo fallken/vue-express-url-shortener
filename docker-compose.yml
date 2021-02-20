@@ -1,5 +1,16 @@
 version: "3.7"
 services:
+   backend:
+    container_name: back-end-express
+    command: sh -c "npm run test && npm start"
+    restart: always 
+    build: 
+        context: ./backend
+        dockerfile: dockerfile
+    ports:
+      - 3000:3000
+    volumes: #
+      - ./backend:/usr/src/app
    front:
     container_name: front-end-vue
     command: sh -c "npm run test && npm run serve"
