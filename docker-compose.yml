@@ -1,8 +1,19 @@
 version: "3.7"
 services:
+   mongo:
+    container_name: mongo-service
+    image: mongo
+    logging:
+      driver: none
+    expose:
+      - 27017
+    ports: 
+      - 27017:27017
+    volumes:
+      - mongodb:/data/db
    backend:
     container_name: back-end-express
-    command: sh -c "npm run test && npm start"
+    command: sh -c "npm start" #"npm run test && npm start"
     restart: always 
     build: 
         context: ./backend
@@ -11,6 +22,8 @@ services:
       - 3000:3000
     volumes: #
       - ./backend:/usr/src/app
+    environment:
+      - MONGO_URL=mongodb://mongo:27017
    front:
     container_name: front-end-vue
     command: sh -c "npm run test && npm run serve"
@@ -22,3 +35,14 @@ services:
       - 8081:8080
     volumes: #
       - ./frontend:/usr/src/app
+   mongo_express:
+    container_name: mongo_express_url_shortener
+    image: mongo-express
+    logging:
+      driver: none
+    links:
+      - mongo
+    ports:
+      - "8083:8081"
+volumes:
+  mongodb:
