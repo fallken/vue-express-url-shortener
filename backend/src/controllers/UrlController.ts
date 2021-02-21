@@ -13,6 +13,7 @@ export const generateShortUrl = async (req: Request, res: Response, next: NextFu
         await collection.insertOne({
             _id: randomString,
             url: body.url,
+            createdAt: new Date()
         });
         return new ResponseHandler({
             final_url: `${config.baseUrl}/${randomString}`,
@@ -28,7 +29,7 @@ export const generateShortUrl = async (req: Request, res: Response, next: NextFu
 export const getUrlList = async (req: Request, res: Response, next: NextFunction): Promise<any> => {
     const collection: mongo.Collection = await UrlService.getCollection();
 
-    let items = await collection.find({}).toArray();//
+    let items = await collection.find({}).sort({createdAt:-1}).toArray();//
     items = items.map((item: UrlDbItem) => {
         return {
             final_url: `${config.baseUrl}/${item._id}`,

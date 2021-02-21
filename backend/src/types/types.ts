@@ -9,7 +9,8 @@ export type ResponseBody = {
 
 export type UrlDbItem = {
     _id: string,
-    url: string
+    url: string,
+    createdAt:Date
 }
 
 export type ValidatorErrorObject = {

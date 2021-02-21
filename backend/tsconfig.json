@@ -18,5 +18,14 @@
     },
     "lib": ["es2015"],
     "include": ["src/**/*", "routes.ts"],
-    "exclude": ["node_modules"]
+    "exclude": ["node_modules"],
+  /*   "paths": {
+        "@interfaces/*": ["interfaces/*"],
+        "@middlewares/*": ["middlewares/*"],
+        "@services/*": ["services/*"],
+        "@database/*": ["database/*"],
+        "@controllers/*": ["controllers/*"],
+        "@config/*": ["config/*"],
+        "@utils/*": ["utils/*"],
+    } */
 }
