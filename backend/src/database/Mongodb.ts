@@ -9,17 +9,20 @@ export class MongoConnection {
     public static db: mongo.Db;
 
 
-    public static getClient(): Promise<mongo.Db> {
-        return new Promise<any>((resolve, reject) => {
-            if(this.isInitialized())
+    public static getDatabase(dbname: string | null = null, url: string | null = null): Promise<mongo.Db> {
+        return new Promise<mongo.Db>((resolve, reject) => {
+            if (this.isInitialized())
                 resolve(MongoConnection.db);
 
-            mongo.MongoClient.connect(MongoConnection.URL, { useNewUrlParser: true }, (err, client: mongo.MongoClient) => {
+            let database = dbname ? dbname : MongoConnection.DB_NAME,
+                conn_url = url ? url : MongoConnection.URL;
+
+            mongo.MongoClient.connect(conn_url, { useNewUrlParser: true }, (err, client: mongo.MongoClient) => {
                 if (err) {
                     reject(err);
                 } else {
                     MongoConnection.client = client;
-                    MongoConnection.db = client.db(this.DB_NAME)
+                    MongoConnection.db = client.db(database)
                     resolve(MongoConnection.db);
                 }
             });
@@ -30,7 +33,7 @@ export class MongoConnection {
         return MongoConnection.db !== undefined;
     }
 
-    public disconnect(): void {
+    public static disconnect(): void {
         MongoConnection.client.close();
     }
 }

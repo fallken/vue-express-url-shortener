@@ -1,8 +1,20 @@
 export type ResponseBody = {
-    meta:{
+    meta: {
         code: number,
-        msg: string|null,
+        msg: string | null,
         detail: object
     },
     data: object
 }
+
+export type UrlDbItem = {
+    _id: string,
+    url: string
+}
+
+export type ValidatorErrorObject = {
+    msg: string,
+    param: object
+}
+
+
