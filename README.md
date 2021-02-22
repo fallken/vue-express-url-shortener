@@ -80,10 +80,14 @@ This is an example of how to list things you need to use the software and how to
 
 * using docker
 
+    the front-end port will be 8081 and backend port will be 3000 . feel free to modify the ports in docker-compose.yml 
+    
     ```
         docker-compose up
     ```
 
+    i have also added a mongo-express admin panel to checkout the database and its collections without any pains using browser
+    the port is 8083 . enjoy !!
 * using npm
 
     * backend (mongodb server should be provided)
