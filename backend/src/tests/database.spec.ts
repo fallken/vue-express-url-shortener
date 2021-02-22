@@ -18,7 +18,7 @@ describe("testing api routes", () => {
 
         const mockUrl = {
             _id: "asfasfas2333",
-            main_url: "www.google.com",
+            mainUrl: "www.google.com",
         };
 
         await url_collection.insertOne(mockUrl);
