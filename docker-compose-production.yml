@@ -27,3 +27,5 @@ services:
       dockerfile: dockerfile.prod
     ports:
       - 8081:8080
+volumes:
+  mongodb:
