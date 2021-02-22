@@ -118,10 +118,13 @@ This is an example of how to list things you need to use the software and how to
                 npm run serve
                 ```
 * runnig tests 
-
-    * backend 
+  
+   i have put the test run script in the docker-compose.yml file so when u type ` docker-compose up` it will first run the tests both on front and back then will serve the servers . 
+   
+  
+    * backend (needs mongodb url provided as env variable(or in env file))
         ```sh
-            cd ./backend && npm install && npm run test
+            cd ./backend && npm install && MONGO_URL=mongodb://localhost:27017 npm run test
         ```    
 
     * frontend 

@@ -21,7 +21,7 @@ describe("testing api routes", () => {
           url
         }).expect(200).then((response: any) => {
           expect(response.body.meta.code === 200).toBeTruthy();
-          expect(response.body.data.main_url).toEqual(url);
+          expect(response.body.data.mainUrl).toEqual(url);
         })
       done()
     });
