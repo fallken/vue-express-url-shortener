@@ -26,7 +26,7 @@ services:
       - MONGO_URL=mongodb://mongo:27017
    front:
     container_name: front-end-vue
-    command: sh -c "npm run test && npm run serve"
+    command: sh -c "npm run serve" #npm run test && npm run serve
     restart: always 
     build: 
         context: ./frontend

@@ -52,7 +52,7 @@ describe("testing api routes", () => {
         .expect(200).then((response: any) => {
           expect(response.body.meta.code === 200).toBeTruthy();
           expect(response.body.data.items.length === 1).toBeTruthy();
-          expect(response.body.data.items[0].main_url).toEqual(url);
+          expect(response.body.data.items[0].mainUrl).toEqual(url);
         })
       done()
     });

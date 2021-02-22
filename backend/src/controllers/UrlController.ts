@@ -16,8 +16,8 @@ export const generateShortUrl = async (req: Request, res: Response, next: NextFu
             createdAt: new Date()
         });
         return new ResponseHandler({
-            final_url: `${config.baseUrl}/${randomString}`,
-            main_url: body.url
+            finalUrl: `${config.baseUrl}/${randomString}`,
+            mainUrl: body.url
         }).send(res);
     } catch (e) {
         if (e.code == 11000)//handling duplications
@@ -32,8 +32,8 @@ export const getUrlList = async (req: Request, res: Response, next: NextFunction
     let items = await collection.find({}).sort({createdAt:-1}).toArray();//
     items = items.map((item: UrlDbItem) => {
         return {
-            final_url: `${config.baseUrl}/${item._id}`,
-            main_url: item.url
+            finalUrl: `${config.baseUrl}/${item._id}`,
+            mainUrl: item.url
         }
     });
     return new ResponseHandler({
