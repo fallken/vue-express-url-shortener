@@ -145,4 +145,4 @@ the user input will be validated and if the user input is not of type url the se
 
 Faramarz Arsalani - arsalani@outlook.com
 
-Project Link: [https://gitlab.com/fallken/vue-express-url-shortener](https://gitlab.com/fallken/vue-express-url-shortener)
+Project Link: [https://github.com/fallken/vue-express-url-shortener](https://github.com/fallken/vue-express-url-shortener)
